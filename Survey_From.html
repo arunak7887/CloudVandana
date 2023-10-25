@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Customer Survey Form</title>
+  <style>
+    /* Add your CSS styles here for formatting */
+  </style>
+</head>
+<body>
+    <center>
+    <h2>customerSurveyForm</h2>
+  
+  <form id="customerSurveyForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" required><br><br>
+
+    <label>Is this your first time using our products and service?</label><br>
+    <input type="radio" id="firstTimeYes" name="firstTime" value="Yes">
+    <label for="firstTimeYes">Yes</label>
+    <input type="radio" id="firstTimeNo" name="firstTime" value="No">
+    <label for="firstTimeNo">No</label><br><br>
+
+    <label>Would you recommend our products and service to your friends and colleagues?</label><br>
+    <input type="radio" id="recommendYes" name="recommend" value="Yes">
+    <label for="recommendYes">Yes</label>
+    <input type="radio" id="recommendNo" name="recommend" value="No">
+    <label for="recommendNo">No</label><br><br>
+
+    <label>How satisfied are you with our company overall?</label><br>
+    <select id="satisfaction" required>
+      <option value="Satisfied">Satisfied</option>
+      <option value="Undecided">Undecided</option>
+      <option value="Unsatisfied">Unsatisfied</option>
+    </select><br><br>
+
+    <label for="suggestions">Do you have any suggestions to improve our service?</label><br>
+    <textarea id="suggestions" rows="4"></textarea><br><br>
+
+    <button type="button" onclick="submitSurvey()">SUBMIT</button>
+  </form>
+
+  <script>
+    function submitSurvey() {
+      // Get values from the form
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const firstTime = document.querySelector('input[name="firstTime"]:checked').value;
+      const recommend = document.querySelector('input[name="recommend"]:checked').value;
+      const satisfaction = document.getElementById("satisfaction").value;
+      const suggestions = document.getElementById("suggestions").value;
+
+      // Display the values (you can customize this as needed)
+      alert("Name: " + name + "\n" +
+            "Email: " + email + "\n" +
+            "Is this your first time: " + firstTime + "\n" +
+            "Would you recommend: " + recommend + "\n" +
+            "Satisfaction: " + satisfaction + "\n" +
+            "Suggestions: " + suggestions);
+
+      // Reset the form
+      document.getElementById("customerSurveyForm").reset();
+    }
+  </script>
+   </center>
+</body>
+</html>
